@@ -17,6 +17,8 @@ public class App {
         EmployeeService employeeService = new EmployeeServiceImpl();
         JobService jobService = new JobServiceImpl();
 
+        System.out.println("1: Employees methods. \n" +
+                           "2: Jobs methods.");
         switch (new Scanner(System.in).nextInt()) {
             case 1:
                 while (true) {
@@ -83,48 +85,49 @@ public class App {
                         default -> System.out.println("Net takoi knopki !!!!");
                     }
                 }
-
-
-//        while (true) {
-//            System.out.println("""
-//                    1: create table
-//                    2: add job
-//                    3: get job by id
-//                    4: sort by experience
-//                    5: get job by employee id
-//                    6: delete column description
-//                    """);
-//            switch (new Scanner(System.in).nextInt()) {
-//                case 1 -> jobService.createJobTable();
-//                case 2 -> {
-//                    System.out.print("Enter position: ");
-//                    String position = new Scanner(System.in).nextLine();
-//                    System.out.print("Enter profession: ");
-//                    String profession = new Scanner(System.in).nextLine();
-//                    System.out.print("Enter description: ");
-//                    String description = new Scanner(System.in).nextLine();
-//                    System.out.print("Enter experience: ");
-//                    int experience = new Scanner(System.in).nextInt();
-//                    jobService.addJob(new Job(position, profession, description, experience));
-//                }
-//                case 3 -> {
-//                    System.out.print("Enter job id: ");
-//                    Long id = new Scanner(System.in).nextLong();
-//                    System.out.println(jobService.getJobById(id));
-//                }
-//                case 4 -> {
-//                    System.out.print("Enter ask or desc: ");
-//                    String ascOrDesc = new Scanner(System.in).nextLine();
-//                    jobService.sortByExperience(ascOrDesc).forEach(System.out::println);
-//                }
-//                case 5 -> {
-//                    System.out.print("Enter employee id: ");
-//                    Long id = new Scanner(System.in).nextLong();
-//                    System.out.println(jobService.getJobByEmployeeId(id));
-//                }
-//                case 6 -> jobService.deleteDescriptionColumn();
-//            }
-//        }
+            case 2:
+                while (true) {
+                    System.out.println("""
+                            1: create table
+                            2: add job
+                            3: get job by id
+                            4: sort by experience
+                            5: get job by employee id
+                            6: delete column description
+                            """);
+                    switch (new Scanner(System.in).nextInt()) {
+                        case 1 -> jobService.createJobTable();
+                        case 2 -> {
+                            System.out.print("Enter position: ");
+                            String position = new Scanner(System.in).nextLine();
+                            System.out.print("Enter profession: ");
+                            String profession = new Scanner(System.in).nextLine();
+                            System.out.print("Enter description: ");
+                            String description = new Scanner(System.in).nextLine();
+                            System.out.print("Enter experience: ");
+                            int experience = new Scanner(System.in).nextInt();
+                            jobService.addJob(new Job(position, profession, description, experience));
+                        }
+                        case 3 -> {
+                            System.out.print("Enter job id: ");
+                            Long id = new Scanner(System.in).nextLong();
+                            System.out.println(jobService.getJobById(id));
+                        }
+                        case 4 -> {
+                            System.out.print("Enter ask or desc: ");
+                            String ascOrDesc = new Scanner(System.in).nextLine();
+                            jobService.sortByExperience(ascOrDesc).forEach(System.out::println);
+                        }
+                        case 5 -> {
+                            System.out.print("Enter employee id: ");
+                            Long id = new Scanner(System.in).nextLong();
+                            System.out.println(jobService.getJobByEmployeeId(id));
+                        }
+                        case 6 -> jobService.deleteDescriptionColumn();
+                    }
+                }
+            default:
+                System.out.println("Error !!!!!");
         }
     }
 }
